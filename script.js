@@ -35,6 +35,7 @@ onload = function(){
                 
         alert.innerHTML = name.value + " added to your contact list";
         alert.style.display = "inline-block";
+        alert.setAttribute("class" , "alert alert-success");
 
         name.value = "";
         number.value = "";

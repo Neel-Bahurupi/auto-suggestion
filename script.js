@@ -47,6 +47,22 @@ onload = function(){
 
 
     delete_button.onclick = function(){
+        let res = [];
+        
+        trie.find(delete_input.value , res);
+        console.log(res);
+        if(res.length == 0 || res[0][0]!==delete_input.value){
+            alert.innerHTML = delete_input.value + " is not present in contact list";
+            alert.style.display = "inline-block";
+            alert.setAttribute("class" , "alert alert-danger");
+            delete_input.value = "";
+            setTimeout(function () {
+                // Closing the alert
+                alert.style.display = "none";
+                
+            }, 3000);
+            return;
+        }
         trie.delete(delete_input.value);
 
         let newData = JSON.parse(localStorage.getItem("myValue"));
@@ -111,8 +127,6 @@ onload = function(){
         document.addEventListener("click", function (e) {
             closeAllLists(e.target);
             search_input.value="";
-            name.value = "";
-            number.value = "";
             delete_input.value = "";
         });
 

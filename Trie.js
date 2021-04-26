@@ -78,13 +78,14 @@ class Trie{
 
     delete(name,depth=0,current=this.root){
         if(current === null){
-            return false;
+            return null;
         }
 
-        if(depth == name.length){
+        if(depth === name.length){
+            current.isEnd = false;
 
-            if(current.isEnd === true){
-                current.isEnd = false;
+            if(this.isEmpty(current) === true){
+                current = null;
             }
             return current;
         }

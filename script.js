@@ -32,10 +32,11 @@ onload = function(){
         trie.add(name.value,number.value);
         
         localStorage.setItem("myValue", JSON.stringify([ ... JSON.parse(localStorage.getItem("myValue")), [name.value, number.value]]));
-                
+        
+        alert.setAttribute("class" , "alert alert-success");
         alert.innerHTML = name.value + " added to your contact list";
         alert.style.display = "inline-block";
-        alert.setAttribute("class" , "alert alert-success");
+        
 
         name.value = "";
         number.value = "";
@@ -53,9 +54,10 @@ onload = function(){
         trie.find(delete_input.value , res);
         console.log(res);
         if(res.length == 0 || res[0][0]!==delete_input.value){
+            alert.setAttribute("class" , "alert alert-danger");
             alert.innerHTML = delete_input.value + " is not present in contact list";
             alert.style.display = "inline-block";
-            alert.setAttribute("class" , "alert alert-danger");
+            
             delete_input.value = "";
             setTimeout(function () {
                 // Closing the alert

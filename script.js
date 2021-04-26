@@ -5,9 +5,9 @@ onload = function(){
 
     if(!localStorage.getItem("myValue")){
         let arr = [
-            ["geek","12345"],
-            ["geeks","22222"],
-            ["geeking","99999"]
+            ["neel","12345555"],
+            ["aditya","66666666"],
+            ["rohan","8888888"]
         ];
         localStorage.setItem("myValue", JSON.stringify(arr));
     }
